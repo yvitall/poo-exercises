@@ -35,46 +35,51 @@ public class ProductModel {
     public void setPrice(double price) {
         this.price = price;
     }
-    public void setQtStock (int quantity){
+
+    public void setQtStock(int quantity) {
         this.qtStock = quantity;
     }
 
-    public void addStock(int addStock){
+    public void addStock(int addStock) {
         this.qtStock += addStock;
         System.out.printf("Foram adicionados %d no Estoque.", addStock);
     }
-    public void removeStock(int quantity){
-        if (quantity == 1){
-        this.qtStock -= quantity;
+
+    public void removeStock(int quantity) {
+        if (quantity == 1) {
+            this.qtStock -= quantity;
             System.out.printf("Foi vendido %d %s", quantity, nameProduct);
-        } else if (quantity > 1){
-        this.qtStock -= quantity;
+        } else if (quantity > 1) {
+            this.qtStock -= quantity;
             System.out.printf("Foram vendidos %d %ss", quantity, nameProduct);
-        }else if (this.qtStock < quantity){
+        } else if (this.qtStock < quantity) {
             System.out.println("Quantidade de produto inválida.");
         }
     }
-    public double discount(double percentual){
+
+    public double discount(double percentual) {
         this.discount = percentual;
         return this.price - (this.price * (percentual / 100));
     }
-    public void fecharCompra(double newPrice){
+
+    public void fecharCompra(double newPrice) {
+        qtStock -= 1;
         System.out.println("====== INFORMAÇÕES PRODUTO ======" + '\n' +
                 "Produto: " + nameProduct + '\n' +
                 "Preço: R$" + price + '\n' +
                 "Quantidade em Estoque: " + qtStock + '\n' +
-                "Desconto: " + discount + '\n' +
-                "Valor Total: " + newPrice
+                "Desconto: %" + discount + '\n' +
+                "Valor Total: R$" + newPrice
         );
     }
 
     @Override
     public String toString() {
-        System.out.printf("\"====== INFORMAÇÕES PRODUTO ======\n"
-                + "Produto: %s\n" + "Preço: R$%.2f\n" + "Qtd. Estoque: %d" +
-        ); "====== INFORMAÇÕES PRODUTO ======" + '\n' +
-                "Produto: " + nameProduct + '\n' +
-                "Preço: R$" + price + '\n' +
-                "Quantidade em Estoque: " + qtStock;
+        return "ProductModel{" +
+                "nameProduct='" + nameProduct + '\'' +
+                ", price=" + price +
+                ", qtStock=" + qtStock +
+                ", discount=" + discount +
+                '}';
     }
 }
