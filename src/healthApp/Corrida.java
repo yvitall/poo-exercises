@@ -3,7 +3,8 @@ package healthApp;
 public class Corrida extends AtividadeFisica {
     private double distanciaKm;
 
-    public Corrida(double distanciaKm) {
+    public Corrida(double duracaoMinutos, int intensidade, double distanciaKm) {
+        super(duracaoMinutos, intensidade);
         this.distanciaKm = distanciaKm;
     }
 

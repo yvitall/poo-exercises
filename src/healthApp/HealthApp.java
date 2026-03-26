@@ -12,9 +12,8 @@ public class HealthApp {
         int intensidade = sc.nextInt();
 
         AtividadeFisica atv1 = new AtividadeFisica(duracaoMinutos, intensidade);
-        Corrida atv2 = new Corrida();
-        Corrida atv2 = new Corrida(duracaoMinutos, intensidade);
-        atv2.setDistanciaKm(10);
+        Corrida atv2 = new Corrida(duracaoMinutos, intensidade, 10);
+
 
         System.out.println(atv1.calcularCalorias());
         System.out.println(atv2.calcularCalorias());
