@@ -19,6 +19,6 @@ public class Transacao {
         System.out.printf("Valor: R$%.2f\n", transf1.getValue());
         System.out.printf("Status: %s\n", transf1.getStatus());
 
-        transf1.processarPgto(1000);
+        transf1.processarPgto(998);
     }
 }
